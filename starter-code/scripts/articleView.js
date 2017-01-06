@@ -65,21 +65,41 @@ articleView.setTeasers = function() {
 };
 
 articleView.initNewArticlePage = function() {
-  // TODO: Ensure the main .tab-content area is revealed. We might add more tabs later.
-
+  // done: Ensure the main .tab-content area is revealed. We might add more tabs later.
+  $('.tab-content').show();
   // TODO: The new articles we create will be copy/pasted into our source data file.
   // Set up this "export" functionality. We can hide the export field for now, and show it once we have data to export.
+  $('#export-field').hide()
 
   // TODO: Add an event listener/handler to update the preview and the export field if any inputs change.
+  $('#new-form').on('change', '', articleView.create)
+
+
+
+      //send in through the Article constructor
+      // the stringify JSON is done in order to send the information to the blog articles -- the blog articles format is in strings
+
+
+  };
 };
 
 articleView.create = function() {
   // TODO: Set up a var to hold the new article we are creating.
   // Clear out the #articles element, so we can put in the updated preview
-
+  $('#articles').empty();
+  var createArticle =   new Article ( {
+      author : $('#article-author').val(),
+      authorUrl : $('#article-author-url').val(),
+      title : $('#article.title').val(),
+      category : $('#article-category').val(),
+      body : $('#article-body').val(),
+      publishedOn : $('published').val()
+      console.log('hello');
+} );
   // TODO: Instantiate an article based on what's in the form fields:
 
   // TODO: Use our interface to the Handblebars template to put this new article into the DOM:
+  // var template = Handlebars.compile($('#article-template').text())
 
   // TODO: Activate the highlighting of any code blocks:
 
